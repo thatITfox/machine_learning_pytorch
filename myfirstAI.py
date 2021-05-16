@@ -35,14 +35,6 @@ class Net(nn.Module):
         x = self.fc4(x)
         return f.log_softmax(x, dim=1)
 
-# def save_checkpoint(state, filename="my_checkpoint.pth.tar"):
-#     print("saving checkpoint")
-#     torch.save(state, filename)
-
-# def load_checkpoint(checkpoint):
-#     print("loading checkpoint")
-#     net.load_state_dict(checkpoint['state_dict'])
-#     optimizer.load_state_dict(checkpoint['state_dict'])
 
 # the network object
 net= Net()
@@ -52,14 +44,9 @@ optimizer = optim.Adam(net.parameters(), lr=0.001)
 
 EPOCHS = 3
 
-# if load_model:
-#     load_checkpoint(torch.load("my_checkpoint.pth.tar"))
 
 for epochs in range(EPOCHS):
-    # if epochs % 3 == 0:
-    #     checkpoint = {'state_dict': net.state_dict(), 'optimizer': optimizer.state_dict()}
-    #     save_checkpoint(checkpoint)
-
+    
     for data in trainset:
         # data is a batch of features and labels
         X, y = data
